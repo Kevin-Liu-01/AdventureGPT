@@ -11,6 +11,7 @@ import {
   LoginIcon,
   LogoutIcon,
   UserCircleIcon,
+  TemplateIcon,
 } from "@heroicons/react/solid";
 
 const Navbar = (props: {
@@ -36,7 +37,7 @@ const Navbar = (props: {
     if (currentTheme === "dark") {
       return (
         <button
-          className="flex h-full w-full items-center justify-center text-gray-300 hover:text-purple-500"
+          className="flex h-full w-full items-center justify-center text-gray-300 hover:text-gray-200"
           role="button"
           onClick={() => setTheme("light")}
         >
@@ -47,7 +48,7 @@ const Navbar = (props: {
     } else {
       return (
         <button
-          className="flex h-full w-full items-center justify-center  text-black hover:text-orange-400"
+          className="flex h-full w-full items-center justify-center  text-black hover:text-gray-900"
           role="button"
           onClick={() => setTheme("dark")}
         >
@@ -68,8 +69,8 @@ const Navbar = (props: {
     }
   };
   return (
-    <nav className="border-b border-gray-600 bg-white font-clash text-gray-900 shadow-lg duration-75 dark:bg-gray-900 dark:text-gray-400">
-      <div className="flex flex-row justify-center">
+    <nav className="relative overflow-hidden border-b border-gray-600 bg-white font-clash text-gray-900 shadow-lg duration-75 dark:bg-gray-900 dark:text-gray-400">
+      <div className="relative z-10 flex flex-row justify-center">
         <div className="flex flex-row items-center">
           <Image
             src="/images/logo.svg"
@@ -129,20 +130,7 @@ const Navbar = (props: {
             className="h-full border-l border-gray-600 px-2 font-semibold no-underline duration-75 hover:bg-gray-300 dark:hover:bg-white/10"
             onClick={() => props.menuHandler()}
           >
-            <Image
-              src="/images/logo.svg"
-              className=" inline h-8 w-8 dark:hidden"
-              height={500}
-              width={500}
-              alt="ChatGPT"
-            />
-            <Image
-              src="/images/logo.svg"
-              className="svgfill-gray  hidden  h-8 w-8 dark:inline"
-              height={500}
-              width={500}
-              alt="ChatGPT"
-            />
+            <TemplateIcon className=" h-8 w-8" />
           </button>
           <div className="relative flex h-full items-center justify-center border-l border-gray-600 px-2 duration-75 hover:bg-gray-300 dark:hover:bg-white/10">
             {renderThemeChanger()}

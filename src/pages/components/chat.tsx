@@ -6,16 +6,16 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useState, useEffect, type SetStateAction } from "react";
 // import { api } from "~/utils/api";
-import { UserCircleIcon, TrashIcon } from "@heroicons/react/solid";
 import { env } from "../../env.mjs";
 import Typewriter from "typewriter-effect";
 import { Configuration, OpenAIApi } from "openai";
 import {
-  AdjustmentsIcon,
+  UserCircleIcon,
   BookOpenIcon,
   SparklesIcon,
   DocumentDownloadIcon,
   RefreshIcon,
+  ViewGridAddIcon,
 } from "@heroicons/react/solid";
 const configuration = new Configuration({
   apiKey: env.NEXT_PUBLIC_OPENAI_API,
@@ -511,11 +511,11 @@ export default function Chat(_props: { translate: boolean }) {
             : "scrollbar relative z-10 col-span-4 flex min-h-[calc(100vh-3.6rem)] flex-col justify-between overflow-x-hidden overflow-y-scroll border-r border-gray-600 bg-gray-100 dark:bg-gray-900"
         }
       >
-        <div className="flex flex-col p-2">
+        <div className="z-5 pattern-opacity-70 pattern-dots absolute h-[100vh] w-[100vw] duration-150 pattern-bg-gray-100 pattern-gray-300 pattern-size-2 dark:pattern-gray-800 dark:pattern-bg-gray-900"></div>
+        <div className="relative z-10 flex flex-col p-2">
           <p className="text-3xl font-extrabold">CREATE YOUR OWN ADVENTURE</p>
           <div className="flex text-xl font-semibold">
             <span>
-              {" "}
               <BookOpenIcon className=" mr-2 inline h-6 w-6 text-gptDark dark:text-gpt" />
               I want to...{" "}
             </span>
@@ -675,13 +675,13 @@ export default function Chat(_props: { translate: boolean }) {
         <div className="relative flex h-full min-h-[calc(100vh-3.6rem)] flex-col ">
           <div className="relative z-10 flex items-center border-b border-b-gray-600 bg-gray-100 px-2 py-2 duration-150 dark:bg-gray-900  ">
             <p className="flex select-none items-center text-lg font-semibold text-gray-800 duration-150 dark:text-white">
-              <AdjustmentsIcon className="mr-2 h-6 w-6 text-gray-600 dark:text-gray-400" />{" "}
+              <ViewGridAddIcon className="mr-2 h-6 w-6 text-gray-600 dark:text-gray-400" />{" "}
               Use{" "}
               <span className="mx-[0.38rem] text-gptDarker dark:text-gpt">
                 {" "}
                 AdventureGPT{" "}
               </span>{" "}
-              to Make a Story
+              to Make Your Story
             </p>
             <div className="ml-auto flex items-center">
               <div className=" text-lg">
